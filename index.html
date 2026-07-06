@@ -3,48 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MLB Team Trivia</title>
-    <style>
-        body { font-family: sans-serif; background: #001f3f; color: white; text-align: center; padding: 20px; }
-        #game-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin-top: 20px; }
-        .team-card { background: #003366; padding: 15px; border-radius: 8px; cursor: pointer; transition: 0.3s; border: 2px solid #00509e; }
-        .team-card:hover { background: #004080; border-color: #fff; }
-    </style>
+    <title>MLB Jersey Quiz</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <h1>MLB Guess The Team</h1>
-    <p>Click on a team card to test your knowledge!</p>
-    <div id="game-grid"></div>
-
-    <script>
-        const teams = [
-            { name: "Diamondbacks" }, { name: "Braves" }, { name: "Orioles" },
-            { name: "Red Sox" }, { name: "White Sox" }, { name: "Cubs" },
-            { name: "Guardians" }, { name: "Rockies" }, { name: "Tigers" },
-            { name: "Astros" }, { name: "Royals" }, { name: "Angels" },
-            { name: "Dodgers" }, { name: "Marlins" }, { name: "Brewers" },
-            { name: "Twins" }, { name: "Mets" }, { name: "Yankees" },
-            { name: "Athletics" }, { name: "Phillies" }, { name: "Pirates" },
-            { name: "Padres" }, { name: "Giants" }, { name: "Mariners" },
-            { name: "Cardinals" }, { name: "Rays" }, { name: "Rangers" },
-            { name: "Blue Jays" }, { name: "Nationals" }, { name: "Reds" }
-        ];
-
-        const grid = document.getElementById('game-grid');
-
-        teams.forEach((team, index) => {
-            const card = document.createElement('div');
-            card.className = 'team-card';
-            card.innerHTML = `<h3>${team.name}</h3>`;
-            card.onclick = () => {
-                const answer = prompt(`Enter the missing team number for ${team.name}:`);
-                if (answer) {
-                    alert(`You guessed ${answer}. (Note: You'll need to define the correct numbers in this script!)`);
-                }
-            };
-            grid.appendChild(card);
-        });
-    </script>
+    <div class="container">
+        <div class="header">
+            <h1>MLB Jersey Quiz</h1>
+            <div class="score">Score: <span id="score">0</span> / <span id="total">0</span></div>
+        </div>
+        <div class="field">
+            <div class="pos" id="cf"><span class="number">#</span><span class="label">CF</span></div>
+            <div class="pos" id="lf"><span class="number">#</span><span class="label">LF</span></div>
+            <div class="pos" id="rf"><span class="number">#</span><span class="label">RF</span></div>
+            <div class="pos" id="ss"><span class="number">#</span><span class="label">SS</span></div>
+            <div class="pos" id="b2"><span class="number">#</span><span class="label">2B</span></div>
+            <div class="pos" id="b3"><span class="number">#</span><span class="label">3B</span></div>
+            <div class="pos" id="ace"><span class="number">#</span><span class="label">ACE</span></div>
+            <div class="pos" id="b1"><span class="number">#</span><span class="label">1B</span></div>
+            <div class="pos" id="dh"><span class="number">#</span><span class="label">DH</span></div>
+            <div class="pos" id="c"><span class="number">#</span><span class="label">C</span></div>
+            <div class="pos team" id="team"><span class="number">?</span></div>
+        </div>
+        <div class="guess-section">
+            <input type="text" id="guess-input" placeholder="Enter team name..." autocomplete="off">
+            <button onclick="checkGuess()">Guess</button>
+        </div>
+        <div class="buttons">
+            <button onclick="newTeam()">New Team</button>
+            <button onclick="revealAnswer()">Reveal Answer</button>
+            <button onclick="resetScore()">Reset Score</button>
+        </div>
+        <div id="feedback" class="feedback"></div>
+        <div id="answer" class="answer hidden">
+            <h2 id="team-name"></h2>
+            <div id="roster"></div>
+        </div>
+    </div>
+    <script src="teams.js"></script>
+    <script src="quiz.js"></script>
 </body>
 </html>
