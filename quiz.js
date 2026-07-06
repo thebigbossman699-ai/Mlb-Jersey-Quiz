@@ -1,48 +1,64 @@
-let currentTeam = null;
+console.log('teams.js loaded. Total teams:', teams.length);
 
-function getRandomTeam() {
-    if (typeof teams === 'undefined') {
-        console.log('teams loaded:', teams.length); // Should print 30
 let currentTeam = null;
-...
-    }
-    const randomIndex = Math.floor(Math.random() * teams.length);
-    return teams[randomIndex];
-}
+let showingAnswer = false;
 
-function loadTeam(team) {
-    if (!team) return;
-    currentTeam = team;
-    team.roster.forEach(player => {
-        const numElement = document.getElementById(`${player.pos}-num`);
-        if (numElement) numElement.textContent = player.number;
-    });
-    document.getElementById('team-num').textContent = '?';
+function newTeam() {
+    showingAnswer = false;
     document.getElementById('answer').classList.add('hidden');
+
+    // Pick random team
+    currentTeam = teams[Math.floor(Math.random() * teams.length)];
+    console.log('Picked team:', currentTeam.name);
+
+    // Clear all positions first
+    const positions = ['cf', 'lf', 'rf', 'ss', 'b2', 'b3', 'ace', 'b1', 'dh', 'c', 'team'];
+    positions.forEach(pos => {
+        const el = document.getElementById(pos);
+        if (el) {
+            const num = el.querySelector('.number');
+            const label = el.querySelector('.label');
+            if (num) num.textContent = pos === 'team'? '?' : '#';
+            if (label && pos!== 'team') label.textContent = el.dataset.posLabel || pos.toUpperCase();
+        }
+    });
+
+    // Fill in jersey numbers
+    currentTeam.roster.forEach(player => {
+        const el = document.getElementById(player.pos);
+        if (el) {
+            el.querySelector('.number').textContent = player.number;
+            el.querySelector('.label').textContent = player.label;
+        }
+    });
+
+    document.getElementById('team').querySelector('.number').textContent = '?';
 }
 
 function revealAnswer() {
-    if (!currentTeam) return;
-    document.getElementById('team-num').textContent = currentTeam.name.split(' ').pop().substring(0, 3).toUpperCase();
-    const answerDiv = document.getElementById('answer');
-    const teamNameEl = document.getElementById('team-name');
-    const rosterEl = document.getElementById('roster');
-    teamNameEl.textContent = currentTeam.name;
-    rosterEl.innerHTML = '';
+    if (!currentTeam || showingAnswer) return;
+    showingAnswer = true;
+
+    document.getElementById('team-name').textContent = currentTeam.name;
+
+    const rosterDiv = document.getElementById('roster');
+    rosterDiv.innerHTML = '';
+
     currentTeam.roster.forEach(player => {
         const div = document.createElement('div');
         div.className = 'roster-item';
-        div.innerHTML = `<strong>${player.label} ${player.number}</strong> - ${player.player}`;
-        rosterEl.appendChild(div);
+        div.innerHTML = `<strong>${player.label} ${player.number}</strong><br>${player.player}`;
+        rosterDiv.appendChild(div);
     });
-    answerDiv.classList.remove('hidden');
+
+    document.getElementById('answer').classList.remove('hidden');
+    document.getElementById('team').querySelector('.number').textContent = currentTeam.name.split(' ')[1].substring(0,3).toUpperCase();
 }
 
-document.getElementById('reveal-btn').addEventListener('click', revealAnswer);
-document.getElementById('new-btn').addEventListener('click', () => {
-    loadTeam(getRandomTeam());
-});
-
+// Add data-pos-label for mobile reset
 document.addEventListener('DOMContentLoaded', () => {
-    loadTeam(getRandomTeam());
+    document.querySelectorAll('.pos.label').forEach(el => {
+        el.dataset.posLabel = el.textContent;
+    });
+    newTeam();
 });
