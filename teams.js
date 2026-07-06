@@ -432,3 +432,18 @@ const teams = [
             { pos: "b1", number: 27, player: "Vladimir Guerrero Jr.", label: "1B" },
             { pos: "dh", number: 3, player: "Myles Straw", label: "DH" },
             { pos: "c
+    {
+        name: "Washington Nationals",
+        roster: [
+            { pos: "cf", number: 1, player: "Dylan Crews", label: "CF" },
+            { pos: "lf", number: 2, player: "Alex Call", label: "LF" },
+            { pos: "rf", number: 28, player: "Lane Thomas", label: "RF" },
+            { pos: "ss", number: 5, player: "CJ Abrams", label: "SS" },
+            { pos: "b2", number: 6, player: "Luis García Jr.", label: "2B" },
+            { pos: "b3", number: 13, player: "Nick Senzel", label: "3B" },
+            { pos: "ace", number: 47, player: "MacKenzie Gore", label: "ACE" },
+            { pos: "b1", number: 29, player: "Joey Meneses", label: "1B" },
+            { pos: "dh", number: 45, player: "Joey Gallo", label: "DH" },
+            { pos: "c", number: 15, player: "Keibert Ruiz", label: "C" }
+        ]
+    }
