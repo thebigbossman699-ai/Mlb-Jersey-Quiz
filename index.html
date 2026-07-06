@@ -5,26 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guess The Team</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
         <header>
-            <div class="top-bar">
-                <span class="gtp">GUESS THE PLAYER</span>
-            </div>
+            <div class="gtp">GUESS THE PLAYER</div>
             <h1>GUESS THE TEAM</h1>
             <p class="subtitle">BY THEIR JERSEY NUMBERS</p>
         </header>
 
         <div id="diamond">
-            <div class="pos lf">
-                <span class="label">LF</span>
-                <span class="number" id="lf-num">9</span>
-            </div>
+            <svg class="diamond-lines" viewBox="0 0 400 400">
+                <path d="M200 360 L40 200 L200 40 L360 200 Z" fill="none" stroke="white" stroke-width="6"/>
+                <path d="M200 350 L50 200 L200 50 L350 200 Z" fill="none" stroke="white" stroke-width="3"/>
+                <polygon points="200,165 215,180 200,195 185,180" fill="white"/>
+            </svg>
+
             <div class="pos cf">
                 <span class="label">CF</span>
                 <span class="number" id="cf-num">25</span>
+            </div>
+            <div class="pos lf">
+                <span class="label">LF</span>
+                <span class="number" id="lf-num">9</span>
             </div>
             <div class="pos rf">
                 <span class="label">RF</span>
@@ -39,7 +43,7 @@
                 <span class="number" id="b2-num">2</span>
             </div>
             <div class="pos b3">
-                <span class="label">3B</span>
+                <span class="label side">3B</span>
                 <span class="number" id="b3-num">22</span>
             </div>
             <div class="pos ace">
@@ -47,8 +51,8 @@
                 <span class="number" id="ace-num">41</span>
             </div>
             <div class="pos b1">
-                <span class="label">1B</span>
                 <span class="number" id="b1-num">23</span>
+                <span class="label side">1B</span>
             </div>
             <div class="pos dh">
                 <span class="label">DH</span>
@@ -65,12 +69,12 @@
         </div>
 
         <div class="controls">
-            <button id="reveal-btn">Reveal Answer</button>
-            <button id="new-btn">New Random Team</button>
+            <button id="reveal-btn">REVEAL ANSWER</button>
+            <button id="new-btn">NEW RANDOM TEAM</button>
         </div>
 
         <div id="answer" class="hidden">
-            <h2 id="team-name">New York Yankees</h2>
+            <h2 id="team-name"></h2>
             <div id="roster"></div>
         </div>
     </div>
