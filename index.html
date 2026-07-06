@@ -3,34 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MLB Jersey Quiz</title>
+    <title>Guess The Team</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
-        <h1>MLB Jersey Quiz</h1>
-        <div class="field">
-            <div class="pos" id="cf"><span class="number">#</span><span class="label">CF</span></div>
-            <div class="pos" id="lf"><span class="number">#</span><span class="label">LF</span></div>
-            <div class="pos" id="rf"><span class="number">#</span><span class="label">RF</span></div>
-            <div class="pos" id="ss"><span class="number">#</span><span class="label">SS</span></div>
-            <div class="pos" id="b2"><span class="number">#</span><span class="label">2B</span></div>
-            <div class="pos" id="b3"><span class="number">#</span><span class="label">3B</span></div>
-            <div class="pos" id="ace"><span class="number">#</span><span class="label">ACE</span></div>
-            <div class="pos" id="b1"><span class="number">#</span><span class="label">1B</span></div>
-            <div class="pos" id="dh"><span class="number">#</span><span class="label">DH</span></div>
-            <div class="pos" id="c"><span class="number">#</span><span class="label">C</span></div>
-            <div class="pos team" id="team"><span class="number">?</span></div>
+        <header>
+            <div class="top-bar">
+                <span class="gtp">GUESS THE PLAYER</span>
+            </div>
+            <h1>GUESS THE TEAM</h1>
+            <p class="subtitle">BY THEIR JERSEY NUMBERS</p>
+        </header>
+
+        <div id="diamond">
+            <div class="pos lf">
+                <span class="label">LF</span>
+                <span class="number" id="lf-num">9</span>
+            </div>
+            <div class="pos cf">
+                <span class="label">CF</span>
+                <span class="number" id="cf-num">25</span>
+            </div>
+            <div class="pos rf">
+                <span class="label">RF</span>
+                <span class="number" id="rf-num">15</span>
+            </div>
+            <div class="pos ss">
+                <span class="label">SS</span>
+                <span class="number" id="ss-num">4</span>
+            </div>
+            <div class="pos b2">
+                <span class="label">2B</span>
+                <span class="number" id="b2-num">2</span>
+            </div>
+            <div class="pos b3">
+                <span class="label">3B</span>
+                <span class="number" id="b3-num">22</span>
+            </div>
+            <div class="pos ace">
+                <span class="label">ACE</span>
+                <span class="number" id="ace-num">41</span>
+            </div>
+            <div class="pos b1">
+                <span class="label">1B</span>
+                <span class="number" id="b1-num">23</span>
+            </div>
+            <div class="pos dh">
+                <span class="label">DH</span>
+                <span class="number" id="dh-num">56</span>
+            </div>
+            <div class="pos c">
+                <span class="label">C</span>
+                <span class="number" id="c-num">27</span>
+            </div>
+            <div class="pos team">
+                <span class="label">TEAM</span>
+                <span class="number" id="team-num">?</span>
+            </div>
         </div>
-        <div class="buttons">
-            <button onclick="newTeam()">New Team</button>
-            <button onclick="revealAnswer()">Reveal Answer</button>
+
+        <div class="controls">
+            <button id="reveal-btn">Reveal Answer</button>
+            <button id="new-btn">New Random Team</button>
         </div>
-        <div id="answer" class="answer hidden">
-            <h2 id="team-name"></h2>
+
+        <div id="answer" class="hidden">
+            <h2 id="team-name">New York Yankees</h2>
             <div id="roster"></div>
         </div>
     </div>
+
     <script src="teams.js"></script>
     <script src="quiz.js"></script>
 </body>
