@@ -1,3 +1,6 @@
+console.log('TEAM COUNT:', teams.length);
+alert('Loaded ' + teams.length + ' teams');
+
 console.log('teams.js loaded. Total teams:', teams.length);
 
 let currentTeam = null;
