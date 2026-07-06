@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the Team by Jersey Numbers</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>GUESS THE TEAM</h1>
+        <p class="subtitle">BY THEIR JERSEY NUMBERS</p>
+        
+        <div id="diamond">
+            <div class="pos cf" data-pos="CF"><span class="label">CF</span><span class="number">--</span></div>
+            <div class="pos lf" data-pos="LF"><span class="label">LF</span><span class="number">--</span></div>
+            <div class="pos rf" data-pos="RF"><span class="label">RF</span><span class="number">--</span></div>
+            <div class="pos ss" data-pos="SS"><span class="label">SS</span><span class="number">--</span></div>
+            <div class="pos b2" data-pos="2B"><span class="label">2B</span><span class="number">--</span></div>
+            <div class="pos b3" data-pos="3B"><span class="label">3B</span><span class="number">--</span></div>
+            <div class="pos ace" data-pos="SP1"><span class="label">ACE</span><span class="number">--</span></div>
+            <div class="pos b1" data-pos="1B"><span class="label">1B</span><span class="number">--</span></div>
+            <div class="pos dh" data-pos="DH"><span class="label">DH</span><span class="number">--</span></div>
+            <div class="pos c" data-pos="C"><span class="label">C</span><span class="number">--</span></div>
+        </div>
+
+        <div class="controls">
+            <button id="new-team">New Random Team</button>
+            <button id="reveal">Reveal Answer</button>
+        </div>
+
+        <div id="answer" class="hidden">
+            <h2 id="team-name">Team Name</h2>
+            <div id="roster"></div>
+        </div>
+    </div>
+
+    <script src="teams.js"></script>
+    <script src="quiz.js"></script>
+</body>
+</html>
