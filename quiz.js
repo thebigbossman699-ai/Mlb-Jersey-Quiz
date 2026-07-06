@@ -2,8 +2,9 @@ let currentTeam = null;
 
 function getRandomTeam() {
     if (typeof teams === 'undefined') {
-        console.error('teams.js not loaded');
-        return null;
+        console.log('teams loaded:', teams.length); // Should print 30
+let currentTeam = null;
+...
     }
     const randomIndex = Math.floor(Math.random() * teams.length);
     return teams[randomIndex];
