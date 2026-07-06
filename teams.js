@@ -431,4 +431,4 @@ const teams = [
             { pos: "ace", number: 39, player: "Trey Yesavage", label: "ACE" },
             { pos: "b1", number: 27, player: "Vladimir Guerrero Jr.", label: "1B" },
             { pos: "dh", number: 3, player: "Myles Straw", label: "DH" },
-            { pos: "c", number: 30, player: "
+            { pos: "c
