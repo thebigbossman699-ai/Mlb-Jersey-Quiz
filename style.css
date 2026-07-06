@@ -1,148 +1,41 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the Team by Jersey Numbers</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>GUESS THE TEAM</h1>
+        <p class="subtitle">BY THEIR JERSEY NUMBERS</p>
+        
+        <div id="diamond">
+            <div class="pos cf" data-pos="CF"><span class="label">CF</span><span class="number">--</span></div>
+            <div class="pos lf" data-pos="LF"><span class="label">LF</span><span class="number">--</span></div>
+            <div class="pos rf" data-pos="RF"><span class="label">RF</span><span class="number">--</span></div>
+            <div class="pos ss" data-pos="SS"><span class="label">SS</span><span class="number">--</span></div>
+            <div class="pos b2" data-pos="2B"><span class="label">2B</span><span class="number">--</span></div>
+            <div class="pos b3" data-pos="3B"><span class="label">3B</span><span class="number">--</span></div>
+            <div class="pos ace" data-pos="SP1"><span class="label">ACE</span><span class="number">--</span></div>
+            <div class="pos b1" data-pos="1B"><span class="label">1B</span><span class="number">--</span></div>
+            <div class="pos dh" data-pos="DH"><span class="label">DH</span><span class="number">--</span></div>
+            <div class="pos c" data-pos="C"><span class="label">C</span><span class="number">--</span></div>
+        </div>
 
-body {
-    background: #0a1f44;
-    color: white;
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    padding: 40px 20px;
-    min-height: 100vh;
-}
+        <div class="controls">
+            <button id="new-team">New Random Team</button>
+            <button id="reveal">Reveal Answer</button>
+        </div>
 
-.container {
-    max-width: 600px;
-    width: 100%;
-    text-align: center;
-}
+        <div id="answer" class="hidden">
+            <h2 id="team-name">Team Name</h2>
+            <div id="roster"></div>
+        </div>
+    </div>
 
-h1 {
-    font-size: 2.5rem;
-    font-weight: 900;
-    letter-spacing: 3px;
-    margin-bottom: 8px;
-}
-
-.subtitle {
-    font-size: 0.9rem;
-    opacity: 0.7;
-    margin-bottom: 40px;
-    letter-spacing: 1px;
-}
-
-#diamond {
-    position: relative;
-    width: 100%;
-    max-width: 450px;
-    aspect-ratio: 1;
-    margin: 50px auto;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50 95 L5 50 L50 5 L95 50 Z" fill="none" stroke="%23ffffff20" stroke-width="2"/></svg>') center/contain no-repeat;
-}
-
-.pos {
-    position: absolute;
-    width: 70px;
-    height: 70px;
-    background: #1e3a5f;
-    border: 2px solid #3d5a80;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    gap: 4px;
-}
-
-.pos .label {
-    font-size: 0.7rem;
-    opacity: 0.6;
-    letter-spacing: 0.5px;
-}
-
-.pos .number {
-    font-size: 1.6rem;
-}
-
-.cf { top: 2%; left: 50%; transform: translateX(-50%); }
-.lf { top: 18%; left: 8%; }
-.rf { top: 18%; right: 8%; }
-.ss { top: 38%; left: 28%; }
-.b2 { top: 38%; right: 28%; }
-.b3 { top: 58%; left: 12%; }
-.ace { top: 50%; left: 50%; transform: translate(-50%, -50%); }
-.b1 { top: 58%; right: 12%; }
-.dh { bottom: 12%; left: 12%; }
-.c { bottom: 2%; left: 50%; transform: translateX(-50%); }
-
-.controls {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-    margin: 40px 0;
-}
-
-button {
-    background: #3d5a80;
-    color: white;
-    border: none;
-    padding: 14px 28px;
-    border-radius: 8px;
-    font-weight: bold;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background 0.2s;
-}
-
-button:hover {
-    background: #4e6d94;
-}
-
-#answer {
-    margin-top: 40px;
-    padding: 30px;
-    background: #1e3a5f;
-    border-radius: 12px;
-}
-
-#answer.hidden {
-    display: none;
-}
-
-#team-name {
-    margin-bottom: 20px;
-    font-size: 1.8rem;
-}
-
-#roster {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    text-align: left;
-}
-
-.roster-item {
-    background: #0a1f44;
-    padding: 12px;
-    border-radius: 6px;
-    font-size: 0.95rem;
-    line-height: 1.4;
-}
-
-.roster-item strong {
-    color: #98c1d9;
-}
-
-@media (max-width: 480px) {
-    #roster {
-        grid-template-columns: 1fr;
-    }
-    .pos {
-        width: 60px;
-        height: 60px;
-    }
-}
+    <script src="teams.js"></script>
+    <script src="quiz.js"></script>
+</body>
+</html>
