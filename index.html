@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MLB Jersey Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>MLB Jersey Quiz</h1>
+        <div class="field">
+            <div class="pos" id="cf"><span class="number">#</span><span class="label">CF</span></div>
+            <div class="pos" id="lf"><span class="number">#</span><span class="label">LF</span></div>
+            <div class="pos" id="rf"><span class="number">#</span><span class="label">RF</span></div>
+            <div class="pos" id="ss"><span class="number">#</span><span class="label">SS</span></div>
+            <div class="pos" id="b2"><span class="number">#</span><span class="label">2B</span></div>
+            <div class="pos" id="b3"><span class="number">#</span><span class="label">3B</span></div>
+            <div class="pos" id="ace"><span class="number">#</span><span class="label">ACE</span></div>
+            <div class="pos" id="b1"><span class="number">#</span><span class="label">1B</span></div>
+            <div class="pos" id="dh"><span class="number">#</span><span class="label">DH</span></div>
+            <div class="pos" id="c"><span class="number">#</span><span class="label">C</span></div>
+            <div class="pos team" id="team"><span class="number">?</span></div>
+        </div>
+        <div class="buttons">
+            <button onclick="newTeam()">New Team</button>
+            <button onclick="revealAnswer()">Reveal Answer</button>
+        </div>
+        <div id="answer" class="answer hidden">
+            <h2 id="team-name"></h2>
+            <div id="roster"></div>
+        </div>
+    </div>
+    <script src="teams.js"></script>
+    <script src="quiz.js"></script>
+</body>
+</html>
