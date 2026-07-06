@@ -2,13 +2,49 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Guess The Team</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MLB Team Trivia</title>
+    <style>
+        body { font-family: sans-serif; background: #001f3f; color: white; text-align: center; padding: 20px; }
+        #game-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin-top: 20px; }
+        .team-card { background: #003366; padding: 15px; border-radius: 8px; cursor: pointer; transition: 0.3s; border: 2px solid #00509e; }
+        .team-card:hover { background: #004080; border-color: #fff; }
+    </style>
 </head>
 <body>
-    <h1>Guess The Team</h1>
+
+    <h1>MLB Guess The Team</h1>
+    <p>Click on a team card to test your knowledge!</p>
     <div id="game-grid"></div>
 
-    <script src="script.js"></script>
+    <script>
+        const teams = [
+            { name: "Diamondbacks" }, { name: "Braves" }, { name: "Orioles" },
+            { name: "Red Sox" }, { name: "White Sox" }, { name: "Cubs" },
+            { name: "Guardians" }, { name: "Rockies" }, { name: "Tigers" },
+            { name: "Astros" }, { name: "Royals" }, { name: "Angels" },
+            { name: "Dodgers" }, { name: "Marlins" }, { name: "Brewers" },
+            { name: "Twins" }, { name: "Mets" }, { name: "Yankees" },
+            { name: "Athletics" }, { name: "Phillies" }, { name: "Pirates" },
+            { name: "Padres" }, { name: "Giants" }, { name: "Mariners" },
+            { name: "Cardinals" }, { name: "Rays" }, { name: "Rangers" },
+            { name: "Blue Jays" }, { name: "Nationals" }, { name: "Reds" }
+        ];
+
+        const grid = document.getElementById('game-grid');
+
+        teams.forEach((team, index) => {
+            const card = document.createElement('div');
+            card.className = 'team-card';
+            card.innerHTML = `<h3>${team.name}</h3>`;
+            card.onclick = () => {
+                const answer = prompt(`Enter the missing team number for ${team.name}:`);
+                if (answer) {
+                    alert(`You guessed ${answer}. (Note: You'll need to define the correct numbers in this script!)`);
+                }
+            };
+            grid.appendChild(card);
+        });
+    </script>
 </body>
 </html>
