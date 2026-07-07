@@ -1,95 +1,33 @@
-// ===============================
-// MLB ROSTER API HANDLER
-// ===============================
+async function loadAllTeams(){
 
+    if(typeof TEAMS === "undefined"){
 
-// Load roster
-async function getTeamRoster(teamID){
-
-
-    // Offline mode
-
-    if(!CONFIG.USE_LIVE_API){
-
-        return getOfflineRoster(teamID);
-
-    }
-
-
-
-    // Live MLB API
-
-    try{
-
-
-        const response =
-        await fetch(
-        `${CONFIG.MLB_API}/v1/teams/${teamID}/roster`
-        );
-
-
-        if(!response.ok){
-
-            throw new Error(
-            "Roster API failed"
-            );
-
-        }
-
-
-        const data =
-        await response.json();
-
-
-
-        return data.roster.map(player=>({
-
-            name:
-            player.person.fullName,
-
-
-            position:
-            player.position.name,
-
-
-            id:
-            player.person.id
-
-        }));
-
-
-    }
-
-    catch(error){
-
-
-        console.error(
-            "API Error:",
-            error
-        );
-
+        console.error("TEAMS not loaded");
 
         return [];
 
     }
 
+
+    return TEAMS;
+
 }
 
 
 
-// Offline roster loader
+async function getTeamRoster(teamID){
 
-function getOfflineRoster(teamID){
-
-
-    const team =
-    TEAMS.find(
-        team =>
-        team.id === teamID
+    const team = TEAMS.find(
+        t => t.id === teamID
     );
 
 
     if(!team){
+
+        console.error(
+            "Team not found:",
+            teamID
+        );
 
         return [];
 
@@ -97,24 +35,5 @@ function getOfflineRoster(teamID){
 
 
     return team.players;
-
-
-}
-
-
-
-// Load all teams
-
-async function loadAllTeams(){
-
-
-    if(CONFIG.USE_LIVE_API){
-
-        return MLB_TEAMS;
-
-    }
-
-
-    return TEAMS;
 
 }
