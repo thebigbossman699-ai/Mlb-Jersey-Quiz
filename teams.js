@@ -512,3 +512,4 @@ players:[
 }
 
 ];
+console.log("teams.js loaded", TEAMS.length);
