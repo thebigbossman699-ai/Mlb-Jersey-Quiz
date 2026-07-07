@@ -1,151 +1,368 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MLB Roster Quiz</title>
 
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MLB Roster Quiz</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
 </head>
+
 
 <body>
 
+
 <div class="container">
 
-    <header>
-        <h1>⚾ MLB Roster Quiz</h1>
-        <p>Guess every player on each MLB team.</p>
-    </header>
 
-    <section class="scoreboard">
+<header>
 
-        <div class="card">
-            <span class="label">Score</span>
-            <h2 id="score">0</h2>
-        </div>
+<h1>⚾ MLB Roster Quiz</h1>
 
-        <div class="card">
-            <span class="label">Correct</span>
-            <h2 id="correct">0</h2>
-        </div>
+<p>
+Guess every player on each MLB team.
+</p>
 
-        <div class="card">
-            <span class="label">Remaining</span>
-            <h2 id="remaining">0</h2>
-        </div>
+</header>
 
-        <div class="card">
-            <span class="label">Accuracy</span>
-            <h2 id="accuracy">100%</h2>
-        </div>
 
-    </section>
 
-    <section class="team-section">
+<section class="scoreboard">
 
-        <h2 id="teamName">Loading Team...</h2>
 
-        <div class="progress">
+<div class="card">
 
-            <div class="progress-bar">
-                <div id="progressFill"></div>
-            </div>
+<span class="label">
+Score
+</span>
 
-            <span id="progressText">0 / 0 Players</span>
-
-        </div>
-
-    </section>
-
-    <section class="guess-section">
-
-        <input
-            type="text"
-            id="guessInput"
-            placeholder="Type a player's name..."
-            autocomplete="off"
-            spellcheck="false"
-        >
-
-        <button id="submitGuess">
-            Guess
-        </button>
-
-    </section>
-
-    <div id="message"></div>
-
-    <section class="buttons">
-
-        <button id="revealButton">
-            Reveal Answers
-        </button>
-
-        <button id="skipButton">
-            Skip Team
-        </button>
-
-        <button id="nextButton">
-            Next Team
-        </button>
-
-    </section>
-
-    <section class="lists">
-
-        <div class="list-card">
-
-            <h3>Correct Guesses</h3>
-
-            <ul id="correctList">
-
-            </ul>
-
-        </div>
-
-        <div class="list-card">
-
-            <h3>Missed Players</h3>
-
-            <ul id="missedList">
-
-            </ul>
-
-        </div>
-
-    </section>
-
-    <section id="gameOver" class="hidden">
-
-        <h2>🎉 Quiz Complete!</h2>
-
-        <p>Total Score: <span id="finalScore">0</span></p>
-
-        <p>Correct Players: <span id="finalCorrect">0</span></p>
-
-        <p>Accuracy: <span id="finalAccuracy">0%</span></p>
-
-        <button id="restartButton">
-            Play Again
-        </button>
-
-    </section>
+<h2 id="score">
+0
+</h2>
 
 </div>
+
+
+
+<div class="card">
+
+<span class="label">
+Correct
+</span>
+
+<h2 id="correct">
+0
+</h2>
+
+</div>
+
+
+
+<div class="card">
+
+<span class="label">
+Wrong
+</span>
+
+<h2 id="wrong">
+0
+</h2>
+
+</div>
+
+
+
+<div class="card">
+
+<span class="label">
+Accuracy
+</span>
+
+<h2 id="accuracy">
+100%
+</h2>
+
+</div>
+
+
+</section>
+
+
+
+
+<section class="team-section">
+
+
+<h2 id="teamName">
+Loading Team...
+</h2>
+
+
+
+<div class="progress">
+
+
+<div class="progress-bar">
+
+<div id="progressFill"></div>
+
+</div>
+
+
+<p id="progressText">
+0 / 10 Players
+</p>
+
+
+</div>
+
+
+</section>
+
+
+
+
+<section class="guess-section">
+
+
+<input
+
+type="text"
+
+id="guessInput"
+
+placeholder="Type a player's name..."
+
+autocomplete="off"
+
+spellcheck="false"
+
+/>
+
+
+
+<button id="submitGuess">
+
+Guess
+
+</button>
+
+
+</section>
+
+
+
+<div id="message">
+
+</div>
+<section class="buttons">
+
+
+<button id="revealButton">
+
+Reveal Answers
+
+</button>
+
+
+
+<button id="skipButton">
+
+Skip Team
+
+</button>
+
+
+
+<button id="nextButton">
+
+Next Team
+
+</button>
+
+
+</section>
+
+
+
+
+<section id="answerBox" class="answers">
+
+</section>
+
+
+
+
+
+<section class="lists">
+
+
+
+<div class="list-card">
+
+
+<h3>
+Correct Guesses
+</h3>
+
+
+<ul id="correctList">
+
+</ul>
+
+
+</div>
+
+
+
+
+<div class="list-card">
+
+
+<h3>
+Missed Players
+</h3>
+
+
+<ul id="missedList">
+
+</ul>
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+<section class="stats-card">
+
+
+<h3>
+Statistics
+</h3>
+
+
+<div id="stats">
+
+Loading...
+
+</div>
+
+
+<button id="clearStats">
+
+Clear Statistics
+
+</button>
+
+
+</section>
+
+
+
+
+
+
+
+<section id="gameOver" class="hidden">
+
+
+<h2>
+🎉 Quiz Complete!
+</h2>
+
+
+
+<p>
+
+Final Score:
+
+<span id="finalScore">
+
+0
+
+</span>
+
+</p>
+
+
+
+
+<p>
+
+Correct Players:
+
+<span id="finalCorrect">
+
+0
+
+</span>
+
+</p>
+
+
+
+
+<p>
+
+Accuracy:
+
+<span id="finalAccuracy">
+
+0%
+
+</span>
+
+</p>
+
+
+
+
+<button id="restartButton">
+
+Play Again
+
+</button>
+
+
+</section>
+
+
+
+
+</div>
+
+
+
+
+
 <script src="config.js"></script>
 
-<script src="teams.json"></script>
+<script src="teams.js"></script>
 
 <script src="api.js"></script>
 
 <script src="script.js"></script>
-<script src="config.js"></script>
-<script src="api.js"></script>
-<script src="script.js"></script>
+
+
 
 </body>
+
 </html>
