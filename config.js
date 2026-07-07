@@ -14,11 +14,11 @@ const CONFIG = {
 
 
     // Players required per team
-    PLAYERS_PER_TEAM: 9,
-
+    PLAYERS_PER_TEAM: 10,
+};
 
     // Game settings
-    MAX_GUESSES: 9,
+    MAX_GUESSES: 10,
 
 
     // Local storage names
