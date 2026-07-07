@@ -300,3 +300,85 @@ button{
         flex-direction:column;
     }
 }
+.field {
+    width: 420px;
+    height: 420px;
+    background: #4caf50;
+    margin: auto;
+    position: relative;
+    border-radius: 10px;
+    border: 5px solid white;
+    overflow:hidden;
+}
+
+
+.field:before {
+    content:"";
+    position:absolute;
+    width:250px;
+    height:250px;
+    background:#c79a63;
+    transform:rotate(45deg);
+    top:80px;
+    left:80px;
+}
+
+
+.player {
+    position:absolute;
+    background:white;
+    color:black;
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-weight:bold;
+}
+
+
+.home {
+    bottom:20px;
+    left:190px;
+}
+
+.pitcher {
+    top:185px;
+    left:190px;
+}
+
+.first {
+    bottom:120px;
+    right:70px;
+}
+
+.second {
+    top:110px;
+    left:190px;
+}
+
+.short {
+    bottom:120px;
+    left:70px;
+}
+
+.third {
+    bottom:20px;
+    left:70px;
+}
+
+.left {
+    top:80px;
+    left:40px;
+}
+
+.center {
+    top:40px;
+    left:190px;
+}
+
+.right {
+    top:80px;
+    right:40px;
+}
