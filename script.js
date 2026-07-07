@@ -63,15 +63,10 @@ async function initGame() {
 
         }
 
-    } catch (err) {
-
-        console.error(err);
-
-        message.textContent = "Failed to load roster data.";
-
-        return;
-    }
-
+  catch(error){
+    console.error(error);
+    showMessage(error.message);
+}
     remainingTeams = [...teams];
 
     shuffle(remainingTeams);
