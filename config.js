@@ -15,7 +15,7 @@ const CONFIG = {
 
     // Players required per team
     PLAYERS_PER_TEAM: 10,
-};
+
 
     // Game settings
     MAX_GUESSES: 10,
