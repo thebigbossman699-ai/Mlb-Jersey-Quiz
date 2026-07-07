@@ -1,412 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
+    <title>MLB Team Guess</title>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>MLB Roster Quiz</title>
-
-<link rel="stylesheet" href="style.css">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="style.css">
 </head>
-
 
 <body>
 
+<h1>MLB Team Guess</h1>
 
-<div class="container">
+<div class="game">
 
+    <div class="field">
 
-<header>
+        <div class="position sp">
+            <small>SP</small>
+            <span id="sp">0</span>
+        </div>
 
-<h1>⚾ MLB Roster Quiz</h1>
+        <div class="position c">
+            <small>C</small>
+            <span id="c">0</span>
+        </div>
 
-<p>
-Guess every player on each MLB team.
-</p>
+        <div class="position first">
+            <small>1B</small>
+            <span id="first">0</span>
+        </div>
 
-</header>
+        <div class="position second">
+            <small>2B</small>
+            <span id="second">0</span>
+        </div>
 
+        <div class="position third">
+            <small>3B</small>
+            <span id="third">0</span>
+        </div>
 
+        <div class="position short">
+            <small>SS</small>
+            <span id="short">0</span>
+        </div>
 
-<section class="scoreboard">
+        <div class="position left">
+            <small>LF</small>
+            <span id="left">0</span>
+        </div>
 
+        <div class="position center">
+            <small>CF</small>
+            <span id="center">0</span>
+        </div>
 
-<div class="card">
+        <div class="position right">
+            <small>RF</small>
+            <span id="right">0</span>
+        </div>
 
-<span class="label">
-Score
-</span>
+        <div class="position dh">
+            <small>DH</small>
+            <span id="dh">0</span>
+        </div>
 
-<h2 id="score">
-0
-</h2>
-
-</div>
-
-
-
-<div class="card">
-
-<span class="label">
-Correct
-</span>
-
-<h2 id="correct">
-0
-</h2>
-
-</div>
-
-
-
-<div class="card">
-
-<span class="label">
-Wrong
-</span>
-
-<h2 id="wrong">
-0
-</h2>
-
-</div>
-
-
-
-<div class="card">
-
-<span class="label">
-Accuracy
-</span>
-
-<h2 id="accuracy">
-100%
-</h2>
-
-</div>
-
-
-</section>
-
-
-
-
-<section class="team-section">
-
-
-<h2 id="teamName">
-Loading Team...
-</h2>
-
-<div class="field">
-
-    <div class="player home"> 
-        <span id="homeNumber">27</span>
     </div>
 
-    <div class="player pitcher">
-        <span id="pitcherNumber">45</span>
-    </div>
 
-    <div class="player first">
-        <span id="firstNumber">12</span>
-    </div>
-
-    <div class="player second">
-        <span id="secondNumber">5</span>
-    </div>
-
-    <div class="player short">
-        <span id="shortNumber">2</span>
-    </div>
-
-    <div class="player third">
-        <span id="thirdNumber">8</span>
-    </div>
-
-    <div class="player left">
-        <span id="leftNumber">17</span>
-    </div>
-
-    <div class="player center">
-        <span id="centerNumber">22</span>
-    </div>
-
-    <div class="player right">
-        <span id="rightNumber">99</span>
-    </div>
-
-</div>
-
-<h2 id="teamName">Player Name</h2>
-
-<input id="guessInput" placeholder="Guess the team">
-
-<button onclick="checkGuess()">Submit</button>
-
-<div class="progress">
+    <h2 id="playerName">
+        Player
+    </h2>
 
 
-<div class="progress-bar">
+    <input 
+        id="guessInput"
+        placeholder="Guess the MLB team"
+    >
 
-<div id="progressFill"></div>
+
+    <button onclick="checkGuess()">
+        Submit
+    </button>
+
+
+    <p id="message"></p>
+
+    <p id="score">
+        Score: 0
+    </p>
+
+    <p id="progressText"></p>
 
 </div>
 
 
-<p id="progressText">
-0 / 10 Players
-</p>
-
-
-</div>
-
-
-</section>
-
-
-
-
-<section class="guess-section">
-
-
-<input
-
-type="text"
-
-id="guessInput"
-
-placeholder="Type a player's name..."
-
-autocomplete="off"
-
-spellcheck="false"
-
-/>
-
-
-
-<button id="submitGuess">
-
-Guess
-
-</button>
-
-
-</section>
-
-
-
-<div id="message">
-
-</div>
-<section class="buttons">
-
-
-<button id="revealButton">
-
-Reveal Answers
-
-</button>
-
-
-
-<button id="skipButton">
-
-Skip Team
-
-</button>
-
-
-
-<button id="nextButton">
-
-Next Team
-
-</button>
-
-
-</section>
-
-
-
-
-<section id="answerBox" class="answers">
-
-</section>
-
-
-
-
-
-<section class="lists">
-
-
-
-<div class="list-card">
-
-
-<h3>
-Correct Guesses
-</h3>
-
-
-<ul id="correctList">
-
-</ul>
-
-
-</div>
-
-
-
-
-<div class="list-card">
-
-
-<h3>
-Missed Players
-</h3>
-
-
-<ul id="missedList">
-
-</ul>
-
-
-</div>
-
-
-
-</section>
-
-
-
-
-
-
-
-<section class="stats-card">
-
-
-<h3>
-Statistics
-</h3>
-
-
-<div id="stats">
-
-Loading...
-
-</div>
-
-
-<button id="clearStats">
-
-Clear Statistics
-
-</button>
-
-
-</section>
-
-
-
-
-
-
-
-<section id="gameOver" class="hidden">
-
-
-<h2>
-🎉 Quiz Complete!
-</h2>
-
-
-
-<p>
-
-Final Score:
-
-<span id="finalScore">
-
-0
-
-</span>
-
-</p>
-
-
-
-
-<p>
-
-Correct Players:
-
-<span id="finalCorrect">
-
-0
-
-</span>
-
-</p>
-
-
-
-
-<p>
-
-Accuracy:
-
-<span id="finalAccuracy">
-
-0%
-
-</span>
-
-</p>
-
-
-
-
-<button id="restartButton">
-
-Play Again
-
-</button>
-
-
-</section>
-
-
-
-
-</div>
-
-
-
-
-
-<script src="config.js"></script>
-
-<script src="teams.js"></script>
-
-<script src="api.js"></script>
-
+<script src="players.js"></script>
 <script src="script.js"></script>
 
-
-
 </body>
-
 </html>
