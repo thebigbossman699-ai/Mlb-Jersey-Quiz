@@ -3,44 +3,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MLB Jersey Quiz</title>
+    <title>MLB Roster Quiz</title>
+
     <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>MLB Jersey Quiz</h1>
-            <div class="score">Score: <span id="score">0</span> / <span id="total">0</span></div>
+
+<div class="container">
+
+    <header>
+        <h1>⚾ MLB Roster Quiz</h1>
+        <p>Guess every player on each MLB team.</p>
+    </header>
+
+    <section class="scoreboard">
+
+        <div class="card">
+            <span class="label">Score</span>
+            <h2 id="score">0</h2>
         </div>
-        <div class="field">
-            <div class="pos" id="cf"><span class="number">#</span><span class="label">CF</span></div>
-            <div class="pos" id="lf"><span class="number">#</span><span class="label">LF</span></div>
-            <div class="pos" id="rf"><span class="number">#</span><span class="label">RF</span></div>
-            <div class="pos" id="ss"><span class="number">#</span><span class="label">SS</span></div>
-            <div class="pos" id="b2"><span class="number">#</span><span class="label">2B</span></div>
-            <div class="pos" id="b3"><span class="number">#</span><span class="label">3B</span></div>
-            <div class="pos" id="ace"><span class="number">#</span><span class="label">ACE</span></div>
-            <div class="pos" id="b1"><span class="number">#</span><span class="label">1B</span></div>
-            <div class="pos" id="dh"><span class="number">#</span><span class="label">DH</span></div>
-            <div class="pos" id="c"><span class="number">#</span><span class="label">C</span></div>
-            <div class="pos team" id="team"><span class="number">?</span></div>
+
+        <div class="card">
+            <span class="label">Correct</span>
+            <h2 id="correct">0</h2>
         </div>
-        <div class="guess-section">
-            <input type="text" id="guess-input" placeholder="Enter team name..." autocomplete="off">
-            <button onclick="checkGuess()">Guess</button>
+
+        <div class="card">
+            <span class="label">Remaining</span>
+            <h2 id="remaining">0</h2>
         </div>
-        <div class="buttons">
-            <button onclick="newTeam()">New Team</button>
-            <button onclick="revealAnswer()">Reveal Answer</button>
-            <button onclick="resetScore()">Reset Score</button>
+
+        <div class="card">
+            <span class="label">Accuracy</span>
+            <h2 id="accuracy">100%</h2>
         </div>
-        <div id="feedback" class="feedback"></div>
-        <div id="answer" class="answer hidden">
-            <h2 id="team-name"></h2>
-            <div id="roster"></div>
+
+    </section>
+
+    <section class="team-section">
+
+        <h2 id="teamName">Loading Team...</h2>
+
+        <div class="progress">
+
+            <div class="progress-bar">
+                <div id="progressFill"></div>
+            </div>
+
+            <span id="progressText">0 / 0 Players</span>
+
         </div>
-    </div>
-    <script src="teams.js"></script>
-    <script src="quiz.js"></script>
+
+    </section>
+
+    <section class="guess-section">
+
+        <input
+            type="text"
+            id="guessInput"
+            placeholder="Type a player's name..."
+            autocomplete="off"
+            spellcheck="false"
+        >
+
+        <button id="submitGuess">
+            Guess
+        </button>
+
+    </section>
+
+    <div id="message"></div>
+
+    <section class="buttons">
+
+        <button id="revealButton">
+            Reveal Answers
+        </button>
+
+        <button id="skipButton">
+            Skip Team
+        </button>
+
+        <button id="nextButton">
+            Next Team
+        </button>
+
+    </section>
+
+    <section class="lists">
+
+        <div class="list-card">
+
+            <h3>Correct Guesses</h3>
+
+            <ul id="correctList">
+
+            </ul>
+
+        </div>
+
+        <div class="list-card">
+
+            <h3>Missed Players</h3>
+
+            <ul id="missedList">
+
+            </ul>
+
+        </div>
+
+    </section>
+
+    <section id="gameOver" class="hidden">
+
+        <h2>🎉 Quiz Complete!</h2>
+
+        <p>Total Score: <span id="finalScore">0</span></p>
+
+        <p>Correct Players: <span id="finalCorrect">0</span></p>
+
+        <p>Accuracy: <span id="finalAccuracy">0%</span></p>
+
+        <button id="restartButton">
+            Play Again
+        </button>
+
+    </section>
+
+</div>
+
+<script src="config.js"></script>
+<script src="api.js"></script>
+<script src="script.js"></script>
+
 </body>
 </html>
